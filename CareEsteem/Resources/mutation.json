@@ -1,0 +1,40 @@
+{
+  "statusCode": 200,
+  "message": "Medication prn fetched successfully",
+  "data": [
+    {
+      "prn_id": "f543f3c8c95547dfad057fa8",
+      "medication_id": "d82660f9b1e94748b2b62abf",
+      "client_id": "01fdcf1048ad45b594f9dc5b",
+      "agency_id": "f694e60c33c444289f8e087c",
+      "prn_date": "2025-07-17",
+      "end_date": "2026-01-13",
+      "user_id": "93daa3884f37401e81bb6ed7",
+      "dose_per": 1,
+      "doses": 1,
+      "time_frame": "Minutes",
+      "prn_offered": "asdasd",
+      "prn_be_given": "we",
+      "status": "Scheduled",
+      "end_date_status": 0,
+      "carer_notes": "",
+      "medication_route_name": "Auricular",
+      "nhs_medicine_name": "Paracetamol 120mg suppositories",
+      "quantity_each_dose": "1",
+      "additional_instructions": "",
+      "medication_support": "Administer",
+      "medication_type": "PRN",
+      "body_map_image_url": [
+        "https://careesteemstorage.s3.eu-west-2.amazonaws.com/clients/body-maps/f694e60c33c444289f8e087c/2025/07/17/01fdcf1048ad45b594f9dc5b/Body%20Front_1752774224084_1752774234581.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIASBLZY6E72NUNU6XM%2F20250717%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250717T180850Z&X-Amz-Expires=300&X-Amz-Signature=1718b727596b7a7a68cce6f897028f4abd77ba300580c79c07d7aca6e3c6c057&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "https://careesteemstorage.s3.eu-west-2.amazonaws.com/clients/body-maps/f694e60c33c444289f8e087c/2025/07/17/01fdcf1048ad45b594f9dc5b/Face%20Front_1752774226659_1752774234582.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIASBLZY6E72NUNU6XM%2F20250717%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250717T180850Z&X-Amz-Expires=300&X-Amz-Signature=903e544faf83da44d8129ace5bfa08a26e031df824ab8933ccd755c0e2a3c880&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject"
+      ],
+      "body_map_status": "PRN",
+      "body_part_names": [
+        "Body Front",
+        "Face Front"
+      ],
+      "user_name": "Surya Murugesan",
+      "start_date": "2025-07-17"
+    }
+  ]
+}
