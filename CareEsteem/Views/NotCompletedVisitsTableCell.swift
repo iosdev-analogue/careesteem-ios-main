@@ -15,7 +15,6 @@ class NotCompletedVisitsTableCell:UITableViewCell{
     @IBOutlet weak var lblCheckin: UILabel!
     @IBOutlet weak var lblCheckout: UILabel!
     @IBOutlet weak var lblCount: UILabel!
-
     @IBOutlet weak var btnCheckin: AGButton!
     @IBOutlet weak var btnRoute: AGButton!
    
@@ -23,18 +22,19 @@ class NotCompletedVisitsTableCell:UITableViewCell{
         super.awakeFromNib()
         self.btnCheckin.action = {
             if (self.object?.visitType ?? "") == "Unscheduled"{
+                
                 let vc = Storyboard.Visits.instantiateViewController(withViewClass: UnscheduleViewController.self)
                 vc.visit =  self.object
                 vc.visitType = .notcompleted
                 AppDelegate.shared.topViewController()?.navigationController?.pushViewController(vc, animated: true)
             }else{
-                let vc = Storyboard.Visits.instantiateViewController(withViewClass: ScheduleViewController.self)
-                vc.visit =  self.object
-                vc.visitType = .notcompleted
-                AppDelegate.shared.topViewController()?.navigationController?.pushViewController(vc, animated: true)
+//                let vc = Storyboard.Visits.instantiateViewController(withViewClass: ScheduleViewController.self)
+//                vc.visit =  self.object
+//                vc.visitType = .notcompleted
+//                AppDelegate.shared.topViewController()?.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        self.btnRoute.action = {
+           self.btnRoute.action = {
             let placesClient = GMSPlacesClient.shared()
             placesClient.lookUpPlaceID(self.object?.placeID ?? "", callback: { (place, error) in
                 if let error = error {
@@ -57,8 +57,8 @@ class NotCompletedVisitsTableCell:UITableViewCell{
 
         }
     }
-    var object:VisitsModel?
-    func setupData(model:VisitsModel){
+     var object:VisitsModel?
+     func setupData(model:VisitsModel){
         self.object = model
         self.lblName.text = model.clientName
 //        if var components = model.clientName?.components(separatedBy: " "), components.count > 1 {
@@ -72,10 +72,18 @@ class NotCompletedVisitsTableCell:UITableViewCell{
         self.lblCheckout.text = "Planned End Time "+(model.plannedEndTime ?? "")
         
         self.btnCheckin.setTitle("Not Completed", for: .normal)
+         
+         if (self.object?.visitType ?? "") == "Unscheduled"{
+             self.btnCheckin.isHidden = false
+         }else {
+             self.btnCheckin.isHidden = true
+         }
 //        if (model.actualStartTime?.first ?? "").isEmpty{
 //        }else{
 //            self.btnCheckin.setTitle("Checkout", for: .normal)
 //        }
     }
 }
+
+
 

@@ -63,6 +63,7 @@ class VisitsViewController: UIViewController {
     var selectedDate:Date = Date()
     var date:Date = Date()
     var startOfWeek:Date = Date()
+    private let viewModel = VisitsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,7 +156,7 @@ class VisitsViewController: UIViewController {
         imageView?.contentMode = .scaleAspectFit
        // self.view.addSubview(imageView!)
         
-        // do not using force for adding imageview  like this.please use always like this..
+        // do not using force for adding imageview  like this
         
         if let imageView = imageView {
             self.view.addSubview(imageView)
@@ -285,6 +286,19 @@ extension VisitsViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.list[indexPath.section].type == .onging{
+            if self.list[indexPath.section].data[indexPath.row].visitType == "Unscheduled"{
+                let vc = Storyboard.Visits.instantiateViewController(withViewClass: UnscheduleViewController.self)
+                vc.visit =  self.list[indexPath.section].data[indexPath.row]
+                vc.visitType = self.list[indexPath.section].type
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                let vc = Storyboard.Visits.instantiateViewController(withViewClass: ScheduleViewController.self)
+                vc.visit =  self.list[indexPath.section].data[indexPath.row]
+                vc.visitType = self.list[indexPath.section].type
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else if self.list[indexPath.section].type == .completed{
             if self.list[indexPath.section].data[indexPath.row].visitType == "Unscheduled"{
                 let vc = Storyboard.Visits.instantiateViewController(withViewClass: UnscheduleViewController.self)
                 vc.visit =  self.list[indexPath.section].data[indexPath.row]
