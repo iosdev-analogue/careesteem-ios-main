@@ -63,8 +63,8 @@ class MainTabViewController:UITabBarController,UITabBarControllerDelegate {
 
         vc2.tabBarItem = UITabBarItem(
             title: "Clients",
-            image: UIImage(named: "clients")?.withRenderingMode(.alwaysTemplate),
-            selectedImage: UIImage(named: "clients")?.withRenderingMode(.alwaysTemplate)
+            image: UIImage(named: "clientstab")?.withRenderingMode(.alwaysTemplate),
+            selectedImage: UIImage(named: "clientselected")?.withRenderingMode(.alwaysTemplate)
         )
 
         vc3.tabBarItem = UITabBarItem(
@@ -79,11 +79,12 @@ class MainTabViewController:UITabBarController,UITabBarControllerDelegate {
         tabBarAppearance.backgroundColor = UIColor(named: "appGreen") ?? .green // Set your background color
 
         // Normal state appearance (unselected)
-        let normalColor: UIColor = UIColor.white.withAlphaComponent(0.8)
+        let normalColor: UIColor = UIColor.white.withAlphaComponent(0.7)
         tabBarAppearance.stackedLayoutAppearance.normal.iconColor = normalColor
         tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [
             .foregroundColor: normalColor,
-            .font: UIFont.systemFont(ofSize: 12, weight: .medium)
+            .font:UIFont.robotoSlab(.regular, size: 14)
+                //UIFont.systemFont(ofSize: 12, weight: .medium)
         ]
 
         // Selected state appearance
@@ -91,7 +92,8 @@ class MainTabViewController:UITabBarController,UITabBarControllerDelegate {
         tabBarAppearance.stackedLayoutAppearance.selected.iconColor = selectedColor
         tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [
             .foregroundColor: selectedColor,
-            .font: UIFont.systemFont(ofSize: 12, weight: .medium)
+            .font: UIFont.robotoSlab(.regular, size: 14)
+                //UIFont.systemFont(ofSize: 12, weight: .medium)
         ]
 
         tabBar.standardAppearance = tabBarAppearance
@@ -145,7 +147,7 @@ class MainTabViewController:UITabBarController,UITabBarControllerDelegate {
         NotificationCenter.default.removeObserver(self)
     }
 }
-extension MainTabViewController{
+ extension MainTabViewController{
     private func getProfile_APICall() {
         
 //        CustomLoader.shared.showLoader(on: self.view)

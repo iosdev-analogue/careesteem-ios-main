@@ -24,10 +24,10 @@ class VisitNotesTableCell:UITableViewCell{
         self.lblName.text = ""
         if let updatedAt = convertStringToDate(dateString: model.updatedAt ?? "", format: "yyyy-MM-dd HH:mm:ss"){
            self.lblName.text = "Updated by: \(model.updatedByUserName ?? "")"
-           self.lblTime.text = convertDateToString(date: updatedAt, format: "dd/MM/yyyy 'at' hh:mm a")
+            self.lblTime.text = convertDateToString(date: updatedAt, format: "dd/MM/yyyy 'at' hh:mm a", timeZone: TimeZone(identifier: "Europe/London"))
        }else if let createdAt = convertStringToDate(dateString: model.createdAt ?? "", format: "yyyy-MM-dd HH:mm:ss"){
             self.lblName.text = "Created by: \(model.createdByUserName ?? "")"
-            self.lblTime.text = convertDateToString(date: createdAt, format: "dd/MM/yyyy 'at' hh:mm a")
+           self.lblTime.text = convertDateToString(date: createdAt, format: "dd/MM/yyyy 'at' hh:mm a",timeZone: TimeZone(identifier: "Europe/London"))
         }
         self.lblNotes.text = model.visitNotes
     }

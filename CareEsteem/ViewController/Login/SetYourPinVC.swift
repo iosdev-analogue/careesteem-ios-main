@@ -51,17 +51,30 @@ class SetYourPinVC: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         })
-        
+//        
+//        pinCodeInputView.set(
+//            appearance: .init(
+//                itemSize: CGSize(width: 12, height: 12),
+//                font: .systemFont(ofSize: 28, weight: .regular),
+//                textColor: UIColor(named: "appGreen") ?? .green,
+//                backgroundColor: UIColor.blue.withAlphaComponent(0.3),
+//                cursorColor: UIColor(named: "appGreen") ?? .green,
+//                cornerRadius: 8
+//            )
         pinCodeInputView.set(
             appearance: .init(
                 itemSize: CGSize(width: 12, height: 12),
-                font: .systemFont(ofSize: 28, weight: .bold),
+                font: UIFont.robotoSlab(.regular, size: 25)
+                    //UIFont(name: "RobotoSlab-Regular", size: 25) ?? UIFont.systemFont(ofSize: 25)
+                ,
                 textColor: UIColor(named: "appGreen") ?? .green,
-                backgroundColor: UIColor.blue.withAlphaComponent(0.3),
-                cursorColor: UIColor(named: "appGreen") ?? .green,
+                backgroundColor: UIColor.green.withAlphaComponent(0.3),
+                cursorColor: UIColor(named: "appGreen") ?? .green, // 👈 Green cursor
                 cornerRadius: 8
             )
         )
+
+
         let keyboard = CustomKeyboardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width-32, height: self.view.frame.width-32))
         keyboard.keyPressed = { pin in
             if pin == "⌫"{

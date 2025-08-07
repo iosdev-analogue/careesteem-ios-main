@@ -137,7 +137,7 @@ class OngoingVisitsTableCell:UITableViewCell{
            let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
            let formatter = DateFormatter()
            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-           formatter.timeZone = .current
+           formatter.timeZone = TimeZone(identifier: "Europe/London")
            
            guard let startDate = formatter.date(from: fullDateTimeStr) else {
                lblTime.text = "00:00"
@@ -149,6 +149,16 @@ class OngoingVisitsTableCell:UITableViewCell{
            let minutes = (totalSeconds / 60) % 60
            let seconds = totalSeconds % 60
            lblTime.text = String(format: "%02d:%02d", minutes, seconds)
+           // Enable checkout after 2 minutes
+                       if minutes >= 2 {
+                           self.btnCheckout.isUserInteractionEnabled = true
+                           self.btnCheckout.alpha = 1.0
+                           self.btnCheckout.backgroundColor = UIColor.red
+                       } else {
+                           self.btnCheckout.isUserInteractionEnabled = false
+                           self.btnCheckout.alpha = 0.5
+                       }
+           
        }
    }
 

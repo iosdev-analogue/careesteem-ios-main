@@ -35,20 +35,28 @@ class SecurityCodeViewController: UIViewController {
         super.viewDidLoad()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
+        btnReSendOtp.titleLabel?.font = UIFont.robotoSlab(.regular, size: 14)
+        
         let mobile = "+" + (countyCode ?? "") + " " + (mobile ?? "")
         self.lblText.text = "OTP sent to \(mobile.maskPhoneNumber())"
         self.btnVerifyOTP.disbledButton()
         otpView.backgroundColor = UIColor.clear
         otpView.otpFieldsCount = 6
-        otpView.otpFieldDefaultBorderColor = UIColor(named: "appGreen") ?? .green
+        otpView.otpFieldDefaultBorderColor = UIColor(named: "AccentColor") ?? .green
         otpView.otpFieldBorderWidth = 2
         otpView.otpFieldDefaultBackgroundColor = UIColor.white
-        otpView.otpFieldEnteredBorderColor = UIColor(named: "appGreen") ?? .green
+        otpView.otpFieldEnteredBorderColor = UIColor(named: "AccentColor") ?? .green
         otpView.otpFieldEnteredBackgroundColor = UIColor.white
-        otpView.otpFieldSeparatorSpace = (otpView.frame.width-((otpView.frame.height-5)*6))/6
-        otpView.otpFieldSize = otpView.frame.height-5
+        otpView.otpFieldSeparatorSpace = 10
+        //(otpView.frame.width-((otpView.frame.height-5)*6))/6
+        otpView.otpFieldSize = otpView.frame.height-10
         otpView.delegate = self
-        otpView.otpFieldFont = UIFont.init(name: "AvenirLTStd-Black", size: 25.0) ?? UIFont.boldSystemFont(ofSize: 25)
+        // Load custom font safely
+        otpView.otpFieldFont = UIFont.robotoSlab(.regular, size: 18)
+        //UIFont.init(name: "roboto-slab", size: 16.0) ?? UIFont.boldSystemFont(ofSize: 16)
+        
+
+//            }
         otpView.shouldAllowIntermediateEditing = true
         self.lblTermAndConditionAttribute()
         
@@ -122,13 +130,13 @@ class SecurityCodeViewController: UIViewController {
         let normalText1 = " and "
         
         let normalAttrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont.loraFont(size: 13, weight: .Regular),
+            .font: UIFont.robotoSlab(.regular, size: 14),
             .foregroundColor: UIColor.black
         ]
         let normalString = NSMutableAttributedString(string: normalText, attributes: normalAttrs)
         
         let boldAttrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont.loraFont(size: 13, weight: .Regular),
+            .font: UIFont.robotoSlab(.regular, size: 14),
             .foregroundColor: UIColor(named: "appBlue") ?? .blue
         ]
         
@@ -203,9 +211,9 @@ extension SecurityCodeViewController: VPMOTPViewDelegate {
         print("OTPString: \(otpString)")
     }
 }
-// MARK: API Call
+// MARK:  API Call
 extension SecurityCodeViewController {
-    
+          
     private func sendOTP_APICall() {
         print("number :- ",self.userModel?.contactNumber)
         print("hashtoken :- ",self.userModel?.hashToken)

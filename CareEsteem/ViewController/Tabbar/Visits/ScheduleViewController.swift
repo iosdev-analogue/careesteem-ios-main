@@ -21,7 +21,8 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var btnCheckout: AGButton!
-   
+    @IBOutlet weak var lblAddress2: UILabel!
+    
     @IBOutlet weak var viewTodo: UIView!
     @IBOutlet weak var viewMedication: UIView!
     @IBOutlet weak var viewVisitNotes: UIView!
@@ -39,7 +40,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var speratorView: UIView!
     @IBOutlet weak var tf: UITextField!
-    var imageView: UIImageView!
+    var imageViewPoly: UIImageView!
     
     var visit:VisitsModel?
     var selectedType:VisitDetailType = .todo
@@ -55,6 +56,10 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lblTodoCount: UILabel!
     @IBOutlet weak var lblMedicationCount: UILabel!
+    @IBOutlet weak var img_btnselectToDO: UIImageView!
+    @IBOutlet weak var img_btnselectmedi: UIImageView!
+    
+    @IBOutlet weak var img_btnselectvisitnotes: UIImageView!
     
     var todoList:[VisitTodoModel] = []
     var todoFilterList:[VisitTodoModel] = []
@@ -93,13 +98,15 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "44 Notes", withExtension: "gif")!)
         noNotesIV.image = UIImage.sd_image(withGIFData: imageData)
 //        btnAddVisitNotes.isHidden = true
-        imageView = UIImageView.init(frame: CGRect(x: 0, y: 255, width: 10, height: 5))
-        imageView.image = UIImage(named: "polygon")
+      //  imageViewPoly = UIImageView.init(frame: CGRect(x: 0, y: 255, width: 10, height: 5))
+       // imageViewPoly.image = UIImage(named: "polygon")
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.singleTap(sender:)))
         singleTapGestureRecognizer.numberOfTapsRequired = 1
         singleTapGestureRecognizer.isEnabled = true
         singleTapGestureRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(singleTapGestureRecognizer)
+        self.timeView.layer.borderColor = UIColor.clear.cgColor
+       
         
         self.todoScroll.pullToRefreshScroll = { pull in
             pull.endRefreshing()
@@ -126,15 +133,15 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
             self.selectedType = .visitnote
             self.setData()
         }
-        self.viewVisitNotesNoData.isHidden = true
-        self.btnCheckout.action = {
+         self.viewVisitNotesNoData.isHidden = true
+         self.btnCheckout.action = {
             
          
             if self.visitType != .onging{
                 self.view.makeToast("Changes are not allowed")
                 return
             }
-            if (self.visit?.actualStartTime?.first ?? "").isEmpty {
+              if (self.visit?.actualStartTime?.first ?? "").isEmpty {
                 if convertDateToString(date: Date(), format: "yyyy-MM-dd",timeZone: TimeZone(identifier: "Europe/London")) == self.visit?.visitDate{
                     let vc = Storyboard.Visits.instantiateViewController(withViewClass: CheckinCheckoutViewController.self)
                     vc.visit =  self.visit
@@ -148,7 +155,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
                 let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                dateFormatter.timeZone = .current//TimeZone(identifier: "Europe/London")
+                dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
 
                 if let startDate = dateFormatter.date(from: fullDateTimeStr) {
                     let currentDate = Date()
@@ -188,7 +195,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        self.btnAddVisitNotes.action = {
+         self.btnAddVisitNotes.action = {
             if self.visitType != .onging{
                 self.view.makeToast("Changes are not allowed")
                 return
@@ -205,7 +212,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
             self.present(vc, animated: true)
         }
         updateVisitTime() // initial update
-        self.view.addSubview(imageView)
+      //  self.view.addSubview(imageViewPoly)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -231,8 +238,13 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         self.lblName.text = self.visit?.clientName
         self.lblAddress.text = self.visit?.clientAddress
         if let clientPostcode = self.visit?.clientPostcode, let clientCity = self.visit?.clientCity{
-            self.lblAddress.text = ( self.visit?.clientAddress ?? "") + "\n" + clientCity + ", " + clientPostcode
+            self.lblAddress2.text = (  clientCity + ", " + clientPostcode)
         }
+        print("Address Gaurav :- ",self.lblAddress.text ?? "")
+        
+        //if let clientPostcode = model.clientPostcode, let clientCity = model.clientCity{
+        //    self.lblAddress.text = ( model.clientAddress ?? "") + "\n" + clientCity + ", " + clientPostcode
+       // }
         // self.lblTime.text = (self.visit?.totalActualTimeDiff?.first ?? "").isEmpty ? "00:00" : (self.visit?.totalActualTimeDiff?.first ?? "")
 
         self.setupUnselected(view: btnTodo)
@@ -274,15 +286,24 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
             self.setupSelected(view: btnTodo)
             updateImageViewFrame(btn: btnTodo)
             self.viewTodo.isHidden = false
+            self.img_btnselectToDO.isHidden = false
+            self.img_btnselectmedi.isHidden = true
+            self.img_btnselectvisitnotes.isHidden = true
             self.getTodoList_APICall()
         }else if selectedType == .medication{
             self.setupSelected(view: btnMedication)
             self.viewMedication.isHidden = false
             updateImageViewFrame(btn: btnMedication)
+            self.img_btnselectToDO.isHidden = true
+            self.img_btnselectmedi.isHidden = false
+            self.img_btnselectvisitnotes.isHidden = true
             self.getMedicationList_APICall()
         }else if selectedType == .visitnote{
             self.setupSelected(view: btnVisitNotes)
             self.viewVisitNotes.isHidden = false
+            self.img_btnselectToDO.isHidden = true
+            self.img_btnselectmedi.isHidden = true
+            self.img_btnselectvisitnotes.isHidden = false
             updateImageViewFrame(btn: btnVisitNotes)
             self.getVisitNoteList_APICall()
         }
@@ -290,7 +311,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
 
     func updateImageViewFrame(btn: AGButton) {
 //        let view1 = self.view.viewWithTag(10)
-        imageView.frame =  CGRect(x: (btn.frame.origin.x + btn.frame.width / 2 + 5), y: 267, width: 10, height: 5)
+        //imageViewPoly.frame =  CGRect(x: (btn.frame.origin.x + btn.frame.width / 2 + 5), y: 267, width: 10, height: 5)
     }
     
     private func startVisitTimer() {
@@ -316,7 +337,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = .current//TimeZone(identifier: "Europe/London")
+        dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
 
         if let startDate = dateFormatter.date(from: fullDateTimeStr) {
             let currentDate = Date()
@@ -340,9 +361,24 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
 //                self.lblTime.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
 //            } else {
                 self.lblTime.text = String(format: "%02d:%02d", minutes, seconds)
+                self.timeView.layer.borderColor = UIColor.black.cgColor
+                self.timeView.layer.borderWidth = 1
 //            }
+            
+            // Enable checkout after 2 minutes
+            if minutes >= 2 {
+                self.btnCheckout.isUserInteractionEnabled = true
+                self.btnCheckout.alpha = 1.0
+                self.btnCheckout.backgroundColor = UIColor.red
+            } else {
+                self.btnCheckout.isUserInteractionEnabled = false
+                self.btnCheckout.alpha = 0.5
+                self.btnCheckout.backgroundColor = UIColor.lightGray
+            }
         } else {
             self.lblTime.text = "00:00"
+            self.btnCheckout.isUserInteractionEnabled = false
+            self.btnCheckout.alpha = 0.5
         }
     }
     func setupSelected(view:AGButton){
@@ -497,13 +533,13 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
             return
         }
         if tableView == todoTableView{
-            let vc = Storyboard.Visits.instantiateViewController(withViewClass: UpdateStatusViewController.self)
+            let vc = Storyboard.Visits.instantiateViewController(withViewClass: UpdateToDoStatusVC.self)
             vc.todo = self.todoList[indexPath.row]
             vc.updateHandler = {
                 self.getTodoList_APICall()
             }
 //            vc.transitioningDelegate = customTransitioningDelegate
-            vc.modalPresentationStyle = .pageSheet
+            vc.modalPresentationStyle = .overFullScreen
 //            vc.modalPresentationStyle = .custom
             self.present(vc, animated: true)
         }else if tableView == medicationTableView{
@@ -524,7 +560,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
                 self.getMedicationList_APICall()
             }
 //            vc.transitioningDelegate = customTransitioningDelegate
-            vc.modalPresentationStyle = .pageSheet
+            vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
         }else if tableView == pnrMedicationTableView{
             let vc = Storyboard.Visits.instantiateViewController(withViewClass: AddEditMedicationViewController.self)

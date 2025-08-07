@@ -15,6 +15,6 @@ class NotificationListTableViewCell:UITableViewCell{
         lblName.text = model.notificationTitle
         lblDesc.text = model.notificationBody
         let createdAt = convertStringToDate(dateString: model.createdAt ?? "", format: "yyyy-MM-dd'T'HH:mm:ss.SSS")
-        self.lblTime.text = convertDateToString(date: createdAt ?? Date(), format: "dd/MM/yyyy")
+        self.lblTime.text = convertDateToString(date: createdAt ?? Date(), format: "dd/MM/yyyy", timeZone: TimeZone(identifier: "Europe/London"))
     }
 }

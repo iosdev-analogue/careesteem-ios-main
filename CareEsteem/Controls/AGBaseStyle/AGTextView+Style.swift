@@ -150,7 +150,8 @@ class AGTextView: UITextView {
         if (text! == "" && placeholder != nil) {
             let paragraphStyle = NSMutableParagraphStyle()
             let attributes: [NSAttributedString.Key : Any] = [
-                .font : font ?? UIFont.RobotoSlabFont(size: 15, weight: .Regular),
+                .font : font ?? UIFont.robotoSlab(.regular, size: 15),
+                //RobotoSlabFont(size: 15, weight: .Regular)
                 .foregroundColor : placeholderColor,
                 .paragraphStyle : paragraphStyle]
 

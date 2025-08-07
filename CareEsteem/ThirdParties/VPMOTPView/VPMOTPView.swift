@@ -76,8 +76,8 @@ class VPMOTPView: UIView {
     var otpFieldInputType: KeyboardType = .numeric
     
     /// Define the font to be used to OTP field. Defaults tp `systemFont` with size `20`.
-    var otpFieldFont: UIFont = UIFont.systemFont(ofSize: 20)
-    
+    var otpFieldFont: UIFont = UIFont(name: "RobotoSlab-Regular", size: 25)!
+   
     /// If set to `true`, then the content inside OTP field will be displayed in asterisk (*) format. Defaults to `false`.
     var otpFieldEntrySecureType: Bool = false
     
@@ -88,7 +88,7 @@ class VPMOTPView: UIView {
     var shouldRequireCursor: Bool = true
     
     /// If `shouldRequireCursor` is set to `false`, then this property will not have any effect. If `true`, then the color of cursor can be changed using this property. Defaults to `blue` color.
-    var cursorColor: UIColor = UIColor.blue
+    var cursorColor: UIColor = UIColor.init(named: "appGreen")!
     
     /// Defines the size of OTP field. Defaults to `60`.
     var otpFieldSize: CGFloat = 60

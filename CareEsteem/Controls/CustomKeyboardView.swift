@@ -74,6 +74,7 @@ class CustomKeyboardView: UIView {
                 let button = UIButton()
                 let buttonSize = UIScreen.main.bounds.width / 6
                 button.setTitle(title, for: .normal)
+            
                 button.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
                 button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
 //                button.setBackgroundImage(UIImage(named: "faceID"), for: .normal)
@@ -87,10 +88,13 @@ class CustomKeyboardView: UIView {
 
             }else if title == "⌫"{
                 button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+                //UIFont.robotoSlab(.regular, size: 30)
+               
                 button.backgroundColor = .clear
                 button.setTitleColor(UIColor(named: "appGreen") ?? .green, for: .normal)
             }else{
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+                button.titleLabel?.font = UIFont.robotoSlab(.regular, size: 24)
+                //systemFont(ofSize: 24)
                 button.backgroundColor = UIColor(named: "keypadBG") ?? .green
                 button.setTitleColor(.black, for: .normal)
             }

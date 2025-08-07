@@ -64,16 +64,26 @@ extension String {
 func convertStringToDate(dateString: String, format: String) -> Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
-    dateFormatter.timeZone = .current//TimeZone(identifier: "Europe/London")
+    dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
     return dateFormatter.date(from: dateString)
 }
 
-func convertDateToString(date: Date, format: String,timeZone:TimeZone? = .current) -> String {
+func convertDateToString(date: Date, format: String,timeZone:TimeZone? = nil) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
-    dateFormatter.timeZone = .current
+    dateFormatter.timeZone = timeZone ?? TimeZone(identifier: "Europe/London")
     return dateFormatter.string(from: date)
 }
+func getCurrentUKTime() -> String {
+    let formatter = DateFormatter()
+    formatter.timeZone = TimeZone(identifier: "Europe/London")
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Adjust format as needed
+
+    let currentDate = Date()
+    return formatter.string(from: currentDate)
+}
+
+
 extension Dictionary where Value == CodableValue {
     func toAnyObject() -> [Key: AnyObject] {
         var result: [Key: AnyObject] = [:]

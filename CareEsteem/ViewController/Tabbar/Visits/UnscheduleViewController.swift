@@ -34,6 +34,8 @@ class UnscheduleViewController: UIViewController {
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var speratorView: UIView!
     
+    @IBOutlet weak var viewAddnote: UIView!
+    
     var visit:VisitsModel?
     var visitType:VisitType = .none
     var selectedType:VisitDetailType = .medication
@@ -87,7 +89,7 @@ class UnscheduleViewController: UIViewController {
                 let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                dateFormatter.timeZone = .current// TimeZone(identifier: "Europe/London")
+                dateFormatter.timeZone =  TimeZone(identifier: "Europe/London")
 
                 if let startDate = dateFormatter.date(from: fullDateTimeStr) {
                     let currentDate = Date()
@@ -255,7 +257,7 @@ class UnscheduleViewController: UIViewController {
         let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = .current//TimeZone(identifier: "Europe/London")
+        dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
 
         if let startDate = dateFormatter.date(from: fullDateTimeStr) {
             let currentDate = Date()

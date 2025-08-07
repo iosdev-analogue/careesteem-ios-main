@@ -52,6 +52,7 @@ class VisitsViewController: UIViewController {
     @IBOutlet weak var btnDate5: AGButton!
     @IBOutlet weak var btnDate6: AGButton!
     @IBOutlet weak var btnDate7: AGButton!
+    @IBOutlet weak var viewcalender: UIView!
     
     var imageView: UIImageView?
     var leftCount = 0
@@ -63,17 +64,27 @@ class VisitsViewController: UIViewController {
     var selectedDate:Date = Date()
     var date:Date = Date()
     var startOfWeek:Date = Date()
-    private let viewModel = VisitsViewModel()
+    //private let viewModel = VisitsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         getNotoficationList_APICall()
         let stackview: UIStackView = (self.view.viewWithTag(3) as? UIStackView)!
         let spacing = (self.view.frame.width - 40 - 36 * 7) / 6
         stackview.spacing = spacing
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.scroll.pullToRefreshScroll = { pull in
-            self.getVisiteList_APICall()
+            
+            self.imageView?.isHidden = true
+           // self.getVisiteList_APICall()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                   
+                self.getVisiteList_APICall()
+                }
+                
+                // Call your API immediately
+               
         }
         
         self.btnPrev.action = {
@@ -183,10 +194,11 @@ class VisitsViewController: UIViewController {
 
         for i in 0..<7 {
             if let newDate = calendar.date(byAdding: .day, value: i, to: self.startOfWeek) {
-                let day = convertDateToString(date: newDate, format: "EEE")
+                let day = convertDateToString(date: newDate, format: "EEE", timeZone: TimeZone(identifier: "Europe/London"))
                 
-                let date = convertDateToString(date: newDate, format: "dd")
+                let date = convertDateToString(date: newDate, format: "dd", timeZone: TimeZone(identifier: "Europe/London"))
                 labels[i]?.text = day.prefix(2) + "\n\n" + date
+                labels[i]?.font = UIFont.robotoSlab(.regular, size: 12)
                 if calendar.isDate(newDate, inSameDayAs: self.selectedDate) {
                     setupSelected(view: views[i]!)
                 }
@@ -194,7 +206,7 @@ class VisitsViewController: UIViewController {
         }
         
         if let endDate = Calendar.current.date(byAdding: .day, value: 6, to: self.startOfWeek) {
-            lblMonth.text = convertDateToString(date: self.startOfWeek, format: "MMMM dd") + " to " + convertDateToString(date: endDate, format: "MMMM dd yyyy")
+            lblMonth.text = convertDateToString(date: self.startOfWeek, format: "MMMM dd", timeZone: TimeZone(identifier: "Europe/London")) + " to " + convertDateToString(date: endDate, format: "MMMM dd yyyy", timeZone: TimeZone(identifier: "Europe/London"))
         }
     }
 
@@ -350,92 +362,224 @@ extension VisitsViewController {
         }
     }
     
+//    private func getVisiteList_APICall() {
+//        
+//        let s = convertDateToString(date:selectedDate, format: "yyyy-MM-dd", timeZone: TimeZone(identifier: "Europe/London"))
+//         print("Date :-",s)
+//        //s = "2025-02-03"
+//        WebServiceManager.sharedInstance.callAPI(apiPath: .getVisitList(userId: UserDetails.shared.user_id),queryParams: [APIParameters.Visits.visitDate: s], method: .get, params: [:],isAuthenticate: true, model: CommonRespons<[VisitsModel]>.self) { response, successMsg in
+//            self.scroll.endRefreshing()
+//            switch response {
+//            case .success(let data):
+//                DispatchQueue.main.async {[weak self] in
+//
+//                    if data.statusCode == 200{
+//                        
+//                        var completed:[VisitsModel] = []
+//                        var notcompleted:[VisitsModel] = []
+//                        var ongoing:[VisitsModel] = []
+//                        var upcomeing:[VisitsModel] = []
+//                         
+//                        for t in data.data ?? []{
+//                            if (t.actualStartTime?.first ?? "").isEmpty && (t.actualEndTime?.first ?? "").isEmpty{
+//                                let datetime = "\(t.visitDate ?? "") \(t.plannedStartTime ?? "")"
+//                                if let createdAt = convertStringToDate(dateString: datetime, format: "yyyy-MM-dd HH:mm") {
+//                                    let now = Date()
+//                                    let hoursDifference = Calendar.current.dateComponents([.hour], from: createdAt, to: now).hour ?? 0
+//                                    if hoursDifference >= 4 {
+//                                        notcompleted.append(t)
+//                                    } else {
+//                                        upcomeing.append(t)
+//                                    }
+//                                } else {
+//                                    upcomeing.append(t)
+//                                }
+//                            }else if !(t.actualStartTime?.first ?? "").isEmpty && (t.actualEndTime?.first ?? "").isEmpty{
+//                                ongoing.append(t)
+//                            }else if !(t.actualStartTime?.first ?? "").isEmpty && !(t.actualEndTime?.first ?? "").isEmpty{
+//                                completed.append(t)
+//                            }
+//                        }
+//                        let currentC = self?.list.first { $0.type == .completed }?.isExpand ?? false
+//                        let currentO = self?.list.first { $0.type == .onging }?.isExpand ?? false
+//                        let currentU = self?.list.first { $0.type == .upcoming }?.isExpand ?? false
+//                        let currentNC = self?.list.first { $0.type == .notcompleted }?.isExpand ?? false
+//                        
+//                        self?.list = [VisitsSectionModel(title:"Not Completed Visits",
+//                                                        type:.notcompleted,
+//                                                         isExpand: currentNC,
+//                                                        data: notcompleted),
+//                                     VisitsSectionModel(title:"Completed Visits",
+//                                                        type:.completed,isExpand: currentC,
+//                                                        data: completed),
+//                                     VisitsSectionModel(title:"Ongoing Visits",
+//                                                        type:.onging,
+//                                                        isExpand: currentO,
+//                                                        data: ongoing),
+//                                     VisitsSectionModel(title:"Upcoming Visits",
+//                                                        type:.upcoming,
+//                                                        isExpand: currentU,
+//                                                        data: upcomeing)]
+//                        self?.alert(model: upcomeing)
+//
+//                        self?.tableView.reloadData()
+//                        self?.tableView.isHidden = false
+//                        self?.imageView?.isHidden = true
+//                        if upcomeing.count == 0 && ongoing.count == 0 && completed.count == 0 && notcompleted.count == 0 {
+//                            self?.tableView.isHidden = true
+//                            self?.imageView?.isHidden = false
+//                        }
+//                    } else {
+//                        self?.view.makeToast(data.message ?? "")
+////                        self.list = [VisitsSectionModel(title:"Not Completed Visits",type:.notcompleted),VisitsSectionModel(title:"Completed Visits",type:.completed),VisitsSectionModel(title:"Ongoing Visits",type:.onging),VisitsSectionModel(title:"Upcoming Visits",type:.upcoming)]
+//                        self?.list = []
+//                        self?.tableView.reloadData()
+//                        self?.tableView.isHidden = self?.list.count == 0
+//                        self?.imageView?.isHidden = self?.list.count != 0
+//                    }
+//                }
+//            case .failure(let error):
+//                DispatchQueue.main.async {[weak self] in
+//                    self?.view.makeToast(error.localizedDescription)
+//                    self?.list = []
+//                    self?.tableView.reloadData()
+//                    self?.tableView.isHidden = self?.list.count == 0
+//                    self?.imageView?.isHidden = self?.list.count != 0
+//                }
+//            }
+//        }
+//    }
+    
     private func getVisiteList_APICall() {
+        let londonTimeZone = TimeZone(identifier: "Europe/London")!
         
-        let s = convertDateToString(date:selectedDate, format: "yyyy-MM-dd")
-        //s = "2025-02-03"
-        WebServiceManager.sharedInstance.callAPI(apiPath: .getVisitList(userId: UserDetails.shared.user_id),queryParams: [APIParameters.Visits.visitDate: s], method: .get, params: [:],isAuthenticate: true, model: CommonRespons<[VisitsModel]>.self) { response, successMsg in
+        let selectedDateString = convertDateToString(
+            date: selectedDate,
+            format: "yyyy-MM-dd",
+            timeZone: londonTimeZone
+        )
+        
+        WebServiceManager.sharedInstance.callAPI(
+            apiPath: .getVisitList(userId: UserDetails.shared.user_id),
+            queryParams: [APIParameters.Visits.visitDate: selectedDateString],
+            method: .get,
+            params: [:],
+            isAuthenticate: true,
+            model: CommonRespons<[VisitsModel]>.self
+        ) { response, successMsg in
+           // self.imageView?.isHidden = true
             self.scroll.endRefreshing()
+            
             switch response {
             case .success(let data):
-                DispatchQueue.main.async {[weak self] in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    if data.statusCode == 200 {
+                        var completed: [VisitsModel] = []
+                        var notCompleted: [VisitsModel] = []
+                        var ongoing: [VisitsModel] = []
+                        var upcoming: [VisitsModel] = []
+                        print("✅ Raw Visit List Data:")
+                 
 
-                    if data.statusCode == 200{
-                        
-                        var completed:[VisitsModel] = []
-                        var notcompleted:[VisitsModel] = []
-                        var ongoing:[VisitsModel] = []
-                        var upcomeing:[VisitsModel] = []
-                        
-                        for t in data.data ?? []{
-                            if (t.actualStartTime?.first ?? "").isEmpty && (t.actualEndTime?.first ?? "").isEmpty{
+                        for t in data.data ?? [] {
+                            let encoder = JSONEncoder()
+                            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+                            
+                            if let jsonData = try? encoder.encode(data),
+                               let jsonString = String(data: jsonData, encoding: .utf8) {
+                                print("✅ Full Visit List (Pretty Printed):\n\(jsonString)")
+                            }
+
+                            let hasStart = !(t.actualStartTime?.first ?? "").isEmpty
+                            let hasEnd = !(t.actualEndTime?.first ?? "").isEmpty
+                            
+                            if !hasStart && !hasEnd {
                                 let datetime = "\(t.visitDate ?? "") \(t.plannedStartTime ?? "")"
-                                if let createdAt = convertStringToDate(dateString: datetime, format: "yyyy-MM-dd HH:mm") {
+                                if let createdAt = convertStringToDatee(
+                                    dateString: datetime,
+                                    format: "yyyy-MM-dd HH:mm",
+                                    timeZone: TimeZone(identifier: "Europe/London")
+                                ) {
                                     let now = Date()
-                                    let hoursDifference = Calendar.current.dateComponents([.hour], from: createdAt, to: now).hour ?? 0
+                                    let hoursDifference = Calendar.current.dateComponents(
+                                        [.hour],
+                                        from: createdAt,
+                                        to: now
+                                    ).hour ?? 0
+                                    
                                     if hoursDifference >= 4 {
-                                        notcompleted.append(t)
+                                        notCompleted.append(t)
                                     } else {
-                                        upcomeing.append(t)
+                                        upcoming.append(t)
                                     }
                                 } else {
-                                    upcomeing.append(t)
+                                    upcoming.append(t)
                                 }
-                            }else if !(t.actualStartTime?.first ?? "").isEmpty && (t.actualEndTime?.first ?? "").isEmpty{
+                            } else if hasStart && !hasEnd {
                                 ongoing.append(t)
-                            }else if !(t.actualStartTime?.first ?? "").isEmpty && !(t.actualEndTime?.first ?? "").isEmpty{
+                            } else if hasStart && hasEnd {
                                 completed.append(t)
                             }
                         }
-                        let currentC = self?.list.first { $0.type == .completed }?.isExpand ?? false
-                        let currentO = self?.list.first { $0.type == .onging }?.isExpand ?? false
-                        let currentU = self?.list.first { $0.type == .upcoming }?.isExpand ?? false
-                        let currentNC = self?.list.first { $0.type == .notcompleted }?.isExpand ?? false
                         
-                        self?.list = [VisitsSectionModel(title:"Not Completed Visits",
-                                                        type:.notcompleted,
-                                                         isExpand: currentNC,
-                                                        data: notcompleted),
-                                     VisitsSectionModel(title:"Completed Visits",
-                                                        type:.completed,isExpand: currentC,
-                                                        data: completed),
-                                     VisitsSectionModel(title:"Ongoing Visits",
-                                                        type:.onging,
-                                                        isExpand: currentO,
-                                                        data: ongoing),
-                                     VisitsSectionModel(title:"Upcoming Visits",
-                                                        type:.upcoming,
-                                                        isExpand: currentU,
-                                                        data: upcomeing)]
-                        self?.alert(model: upcomeing)
-
-                        self?.tableView.reloadData()
-                        self?.tableView.isHidden = false
-                        self?.imageView?.isHidden = true
-                        if upcomeing.count == 0 && ongoing.count == 0 && completed.count == 0 && notcompleted.count == 0 {
-                            self?.tableView.isHidden = true
-                            self?.imageView?.isHidden = false
+                        let currentC = self.list.first { $0.type == .completed }?.isExpand ?? false
+                        let currentO = self.list.first { $0.type == .onging }?.isExpand ?? false
+                        let currentU = self.list.first { $0.type == .upcoming }?.isExpand ?? false
+                        let currentNC = self.list.first { $0.type == .notcompleted }?.isExpand ?? false
+                        
+                        self.list = [
+                            VisitsSectionModel(title: "Not Completed Visits", type: .notcompleted, isExpand: currentNC, data: notCompleted),
+                            VisitsSectionModel(title: "Completed Visits", type: .completed, isExpand: currentC, data: completed),
+                            VisitsSectionModel(title: "Ongoing Visits", type: .onging, isExpand: currentO, data: ongoing),
+                            VisitsSectionModel(title: "Upcoming Visits", type: .upcoming, isExpand: currentU, data: upcoming)
+                        ]
+                        
+                        self.alert(model: upcoming)
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                        self.imageView?.isHidden = true
+                        
+                        if upcoming.isEmpty && ongoing.isEmpty && completed.isEmpty && notCompleted.isEmpty {
+                            self.tableView.isHidden = true
+                            self.imageView?.isHidden = false
                         }
                     } else {
-                        self?.view.makeToast(data.message ?? "")
-//                        self.list = [VisitsSectionModel(title:"Not Completed Visits",type:.notcompleted),VisitsSectionModel(title:"Completed Visits",type:.completed),VisitsSectionModel(title:"Ongoing Visits",type:.onging),VisitsSectionModel(title:"Upcoming Visits",type:.upcoming)]
-                        self?.list = []
-                        self?.tableView.reloadData()
-                        self?.tableView.isHidden = self?.list.count == 0
-                        self?.imageView?.isHidden = self?.list.count != 0
+                        self.view.makeToast(data.message ?? "")
+                        self.list = []
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = self.list.isEmpty
+                        self.imageView?.isHidden = !self.list.isEmpty
                     }
                 }
+                
             case .failure(let error):
-                DispatchQueue.main.async {[weak self] in
-                    self?.view.makeToast(error.localizedDescription)
-                    self?.list = []
-                    self?.tableView.reloadData()
-                    self?.tableView.isHidden = self?.list.count == 0
-                    self?.imageView?.isHidden = self?.list.count != 0
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.view.makeToast(error.localizedDescription)
+                    self.list = []
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = self.list.isEmpty
+                    self.imageView?.isHidden = !self.list.isEmpty
                 }
             }
         }
     }
+    func convertDateToStringg(date: Date, format: String, timeZone: TimeZone? = nil) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = timeZone ?? TimeZone(identifier: "Europe/London")
+        return formatter.string(from: date)
+    }
+
+    func convertStringToDatee(dateString: String, format: String, timeZone: TimeZone? = nil) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = timeZone ?? TimeZone(identifier: "Europe/London")
+        return formatter.date(from: dateString)
+    }
+
     
     private func getNotoficationList_APICall() {
         

@@ -113,7 +113,8 @@ open class PlaceholderTextView: UITextView {
         self.setNeedsDisplay()
         
         // Placeholder text color
-        self.font = UIFont.RobotoSlabFont(size: 15, weight: .Regular)
+        self.font = UIFont.robotoSlab(.regular, size: 15)
+        //RobotoSlabFont(size: 15, weight: .Regular)
         
         if self.heightConstraint != nil && maxHeightConstraint != nil{
         

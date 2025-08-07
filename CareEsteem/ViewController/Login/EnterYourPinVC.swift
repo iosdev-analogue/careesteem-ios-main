@@ -67,7 +67,9 @@ class EnterYourPinVC: UIViewController {
         pinCodeInputView?.set(
             appearance: .init(
                 itemSize: CGSize(width: 12, height: 12),
-                font: .systemFont(ofSize: 28, weight: .bold),
+                font:UIFont.robotoSlab(.bold, size: 25)
+                  //  UIFont(name: "RobotoSlab-Regular", size: 25) ?? UIFont.systemFont(ofSize: 25)
+                ,
                 textColor: UIColor(named: "appGreen") ?? .green,
                 backgroundColor: UIColor.blue.withAlphaComponent(0.3),
                 cursorColor: UIColor(named: "appGreen") ?? .green,
@@ -98,6 +100,7 @@ class EnterYourPinVC: UIViewController {
         }
         view.addSubview(keyboard)
         keyboard.translatesAutoresizingMaskIntoConstraints = false
+        
         let ff = self.view.viewWithTag(8)
         NSLayoutConstraint.activate([
             keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
