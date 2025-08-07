@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HOS-2I-vRM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jqi-TU-LYh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,26 +28,26 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="wxU-df-rc2">
                                 <rect key="frame" x="0.0" y="566.66666666666663" width="393" height="251.33333333333337"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="70b-B8-NTE">
-                                <rect key="frame" x="40" y="69.000000000000028" width="313" height="406.66666666666674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="70b-B8-NTE">
+                                <rect key="frame" x="40" y="130" width="313" height="412"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pVJ-6j-S6F">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CareEsteem Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pVJ-6j-S6F">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="jN0-fT-g6Q"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-JM-8Hg">
-                                        <rect key="frame" x="0.0" y="130" width="313" height="76.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="130" width="313" height="82"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Va-G0-9ck">
-                                                <rect key="frame" x="74.000000000000014" y="0.0" width="165.33333333333337" height="47.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="36"/>
+                                                <rect key="frame" x="64.666666666666671" y="0.0" width="183.66666666666663" height="53"/>
+                                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ty5-b8-7IN">
-                                                <rect key="frame" x="75.333333333333329" y="52.666666666666657" width="162.33333333333337" height="24"/>
+                                                <rect key="frame" x="75.333333333333329" y="58" width="162.33333333333337" height="24"/>
                                                 <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -56,7 +55,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cPn-71-SE7">
-                                        <rect key="frame" x="0.0" y="236.66666666666669" width="313" height="95"/>
+                                        <rect key="frame" x="0.0" y="242" width="313" height="95"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mJe-aX-PWv">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
@@ -85,17 +84,17 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKb-aM-dWv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+44 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sp-18-Bsa">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+44 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sp-18-Bsa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="55"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="O1y-Ke-b10"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="16"/>
+                                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cm9-Pi-gvk">
-                                                                        <rect key="frame" x="75" y="22.999999999999961" width="15" height="9.9999999999999964"/>
+                                                                        <rect key="frame" x="75" y="23.000000000000018" width="15" height="9.9999999999999964"/>
                                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="ayd-js-bZX"/>
@@ -104,11 +103,10 @@
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd4-dH-qyx" customClass="AGButton" customModule="CareEsteem" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     </button>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="1sp-18-Bsa" secondAttribute="trailing" constant="20" id="3w2-83-a2t"/>
                                                                     <constraint firstItem="1sp-18-Bsa" firstAttribute="top" secondItem="vKb-aM-dWv" secondAttribute="top" id="6L5-1r-xnn"/>
@@ -132,7 +130,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfo-dp-luq">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfo-dp-luq">
                                                                 <rect key="frame" x="111.66666666666664" y="0.0" width="201.33333333333337" height="55"/>
                                                                 <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -140,7 +138,6 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="W4e-Gx-Z3T" firstAttribute="leading" secondItem="t8k-fs-vDZ" secondAttribute="leading" id="InU-el-1QJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="W4e-Gx-Z3T" secondAttribute="trailing" id="T43-Vs-Kdn"/>
@@ -163,7 +160,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5R-Hz-ItF">
-                                        <rect key="frame" x="0.0" y="361.66666666666669" width="313" height="45"/>
+                                        <rect key="frame" x="0.0" y="367" width="313" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z01-iA-JOP" customClass="AGButton" customModule="CareEsteem" customModuleProvider="target">
                                                 <rect key="frame" x="56.666666666666686" y="0.0" width="200" height="45"/>
@@ -221,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkR-FG-pYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710.6870229007634" y="-23.239436619718312"/>
+            <point key="canvasLocation" x="1651" y="-23"/>
         </scene>
         <!--Security Code View Controller-->
         <scene sceneID="M9w-NW-NzM">
@@ -232,28 +229,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verifyotpBG" translatesAutoresizingMaskIntoConstraints="NO" id="xJx-oI-FlO">
-                                <rect key="frame" x="0.0" y="551" width="393" height="267"/>
+                                <rect key="frame" x="0.0" y="568" width="393" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Wp4-S8-A2J"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uQH-Fo-5pB">
-                                <rect key="frame" x="40" y="69.000000000000028" width="313" height="484.66666666666674"/>
+                                <rect key="frame" x="40" y="69.000000000000028" width="323" height="484.66666666666674"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9cL-3i-wc1">
-                                        <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CareEsteem Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9cL-3i-wc1">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="qMN-xq-N3f"/>
+                                            <constraint firstAttribute="height" constant="100" id="Tk9-Za-lvl"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vpz-gD-E9n">
-                                        <rect key="frame" x="0.0" y="130" width="313" height="74.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="130" width="323" height="74.666666666666686"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify OTP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqq-Fb-InQ">
-                                                <rect key="frame" x="80.000000000000014" y="0.0" width="153.33333333333337" height="39.666666666666664"/>
+                                                <rect key="frame" x="85.000000000000014" y="0.0" width="153.33333333333337" height="39.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnq-sp-TeL">
-                                                <rect key="frame" x="36.666666666666686" y="44.666666666666657" width="240" height="30"/>
+                                                <rect key="frame" x="41.666666666666686" y="44.666666666666657" width="240" height="30"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4fH-mE-no1">
                                                         <rect key="frame" x="-16.333333333333343" y="0.0" width="272.66666666666674" height="30"/>
@@ -284,13 +284,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-vr-oIA">
-                                        <rect key="frame" x="0.0" y="234.66666666666669" width="313" height="250"/>
+                                        <rect key="frame" x="0.0" y="234.66666666666669" width="323" height="250"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gLD-ez-7Bt">
-                                                <rect key="frame" x="0.0" y="0.0" width="313" height="95"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="95"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-Pt-izM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otp" translatesAutoresizingMaskIntoConstraints="NO" id="1O8-1T-gIM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -300,16 +300,17 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter OTP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYm-MC-fCb">
-                                                                <rect key="frame" x="40" y="0.0" width="273" height="30"/>
+                                                                <rect key="frame" x="40" y="0.0" width="283" height="30"/>
                                                                 <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <color key="tintColor" name="AccentColor"/>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc3-dB-oGp" customClass="VPMOTPView" customModule="CareEsteem" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="40" width="313" height="55"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <rect key="frame" x="0.0" y="40" width="323" height="55"/>
+                                                        <color key="tintColor" name="appGreen"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="55" id="zkY-mN-tuS"/>
                                                         </constraints>
@@ -317,16 +318,16 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ye-8U-Kgi">
-                                                <rect key="frame" x="0.0" y="105" width="313" height="50"/>
+                                                <rect key="frame" x="0.0" y="105" width="323" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By entering OTP you agree to accept our Terms &amp; Condition and Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-d0-bC4">
-                                                        <rect key="frame" x="55" y="0.0" width="258" height="50"/>
+                                                        <rect key="frame" x="31.666666666666657" y="0.0" width="291.33333333333337" height="50"/>
                                                         <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="RobotoSlab" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-Fm-UlQ" customClass="AGButton" customModule="CareEsteem" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="26.666666666666668"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="PO5-Fm-UlQ" secondAttribute="height" id="TNm-hM-m6h"/>
                                                         </constraints>
@@ -349,10 +350,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SG3-PB-UbN">
-                                                <rect key="frame" x="0.0" y="165" width="313" height="55"/>
+                                                <rect key="frame" x="0.0" y="165" width="323" height="55"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wq-pe-QR9" customClass="AGButton" customModule="CareEsteem" customModuleProvider="target">
-                                                        <rect key="frame" x="56.666666666666686" y="10" width="200" height="45"/>
+                                                        <rect key="frame" x="61.666666666666686" y="10" width="200" height="45"/>
                                                         <color key="backgroundColor" name="appGreen"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="lzs-Xk-Was"/>
@@ -378,10 +379,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4W-zf-2Ia">
-                                                <rect key="frame" x="0.0" y="229.99999999999994" width="313" height="20"/>
+                                                <rect key="frame" x="0.0" y="229.99999999999994" width="323" height="20"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hPF-vf-Dli">
-                                                        <rect key="frame" x="25.333333333333343" y="0.0" width="262.33333333333326" height="20"/>
+                                                        <rect key="frame" x="35.333333333333329" y="0.0" width="252.33333333333337" height="20"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Didn’t receive the OTP? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzl-TL-CUL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="20"/>
@@ -390,10 +391,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov1-X7-ERm" customClass="AGButton" customModule="CareEsteem" customModuleProvider="target">
-                                                                <rect key="frame" x="162.33333333333331" y="0.0" width="100" height="20"/>
+                                                                <rect key="frame" x="162.33333333333331" y="0.0" width="90" height="20"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Resend OTP">
-                                                                    <color key="titleColor" name="appGreen"/>
+                                                                    <color key="titleColor" name="AccentColor"/>
+                                                                    <color key="titleShadowColor" name="AccentColor"/>
                                                                 </state>
                                                             </button>
                                                         </subviews>
@@ -411,30 +414,16 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfd-G1-ybl">
-                                <rect key="frame" x="10" y="70" width="49" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="0vh-CO-0xT"/>
-                                    <constraint firstAttribute="width" constant="49" id="t0Q-kz-T99"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="back"/>
-                                <connections>
-                                    <action selector="backButton:" destination="Jqi-TU-LYh" eventType="touchUpInside" id="z5c-q1-XgT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v6t-XZ-C2I"/>
                         <color key="backgroundColor" name="viewBGColor"/>
                         <constraints>
-                            <constraint firstItem="uQH-Fo-5pB" firstAttribute="top" secondItem="v6t-XZ-C2I" secondAttribute="top" constant="10" id="7Ll-rh-1hA"/>
-                            <constraint firstItem="vfd-G1-ybl" firstAttribute="top" secondItem="qNa-u2-Xur" secondAttribute="top" constant="70" id="8Gn-9B-E52"/>
                             <constraint firstItem="v6t-XZ-C2I" firstAttribute="bottom" secondItem="xJx-oI-FlO" secondAttribute="bottom" id="ILi-bk-ku4"/>
                             <constraint firstItem="uQH-Fo-5pB" firstAttribute="leading" secondItem="v6t-XZ-C2I" secondAttribute="leading" constant="40" id="cef-vd-8SS"/>
-                            <constraint firstItem="vfd-G1-ybl" firstAttribute="leading" secondItem="qNa-u2-Xur" secondAttribute="leading" constant="10" id="gW7-Za-40a"/>
                             <constraint firstItem="v6t-XZ-C2I" firstAttribute="trailing" secondItem="xJx-oI-FlO" secondAttribute="trailing" id="nWH-o3-p2v"/>
+                            <constraint firstItem="uQH-Fo-5pB" firstAttribute="top" secondItem="v6t-XZ-C2I" secondAttribute="top" constant="10" id="ogV-Rq-wAd"/>
                             <constraint firstItem="xJx-oI-FlO" firstAttribute="leading" secondItem="v6t-XZ-C2I" secondAttribute="leading" id="r5f-mc-8hD"/>
-                            <constraint firstItem="v6t-XZ-C2I" firstAttribute="trailing" secondItem="uQH-Fo-5pB" secondAttribute="trailing" constant="40" id="tH1-4t-vip"/>
+                            <constraint firstItem="v6t-XZ-C2I" firstAttribute="trailing" secondItem="uQH-Fo-5pB" secondAttribute="trailing" constant="30" id="tH1-4t-vip"/>
                         </constraints>
                     </view>
                     <connections>
@@ -449,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFd-bS-3Ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463.3587786259541" y="-23.239436619718312"/>
+            <point key="canvasLocation" x="2371.7557251908397" y="-23.239436619718312"/>
         </scene>
         <!--Set Your PinVC-->
         <scene sceneID="Tpp-XK-Co2">
@@ -462,7 +451,7 @@
                             <stackView opaque="NO" tag="8" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-sg-Ina">
                                 <rect key="frame" x="40" y="69" width="313" height="286"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-fJ-WUq">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CareEsteem Logo" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-fJ-WUq">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="IPi-7y-o94"/>
@@ -508,27 +497,13 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1H-ca-3oN">
-                                <rect key="frame" x="10" y="70" width="49" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="2Fh-cI-YfH"/>
-                                    <constraint firstAttribute="height" constant="39" id="JHt-cE-ehD"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="back"/>
-                                <connections>
-                                    <action selector="backButton:" destination="HOS-2I-vRM" eventType="touchUpInside" id="ClF-Ng-6bA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3mS-98-k0y"/>
                         <color key="backgroundColor" name="viewBGColor"/>
                         <constraints>
                             <constraint firstItem="3mS-98-k0y" firstAttribute="trailing" secondItem="Uxc-sg-Ina" secondAttribute="trailing" constant="40" id="1DA-RJ-ojI"/>
                             <constraint firstItem="Uxc-sg-Ina" firstAttribute="top" secondItem="3mS-98-k0y" secondAttribute="top" constant="10" id="FJ7-MN-MA7"/>
-                            <constraint firstItem="C1H-ca-3oN" firstAttribute="leading" secondItem="1Zr-Oe-iPl" secondAttribute="leading" constant="10" id="Hdo-pr-OOC"/>
                             <constraint firstItem="Uxc-sg-Ina" firstAttribute="leading" secondItem="3mS-98-k0y" secondAttribute="leading" constant="40" id="Pqq-sb-eFj"/>
-                            <constraint firstItem="C1H-ca-3oN" firstAttribute="top" secondItem="1Zr-Oe-iPl" secondAttribute="top" constant="70" id="hud-1n-apd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -537,7 +512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJu-UF-btz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237.4045801526718" y="-23.239436619718312"/>
+            <point key="canvasLocation" x="3013" y="-23"/>
         </scene>
         <!--Confirm PinVC-->
         <scene sceneID="JwG-76-Lpw">
@@ -550,7 +525,7 @@
                             <stackView opaque="NO" tag="8" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-QT-bUv">
                                 <rect key="frame" x="40" y="69" width="313" height="286"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ps7-3s-AFk">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CareEsteem Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ps7-3s-AFk">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="ovp-N2-HEM"/>
@@ -596,18 +571,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tub-im-nPx">
-                                <rect key="frame" x="10" y="70" width="49" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="5e3-yr-GKm"/>
-                                    <constraint firstAttribute="height" constant="39" id="xtp-Ar-L8d"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="back"/>
-                                <connections>
-                                    <action selector="backButton:" destination="snG-ma-Vme" eventType="touchUpInside" id="HPc-hr-fwN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PBK-gz-feY"/>
                         <color key="backgroundColor" name="viewBGColor"/>
@@ -615,8 +578,6 @@
                             <constraint firstItem="Waf-QT-bUv" firstAttribute="leading" secondItem="PBK-gz-feY" secondAttribute="leading" constant="40" id="93Q-Ea-eo7"/>
                             <constraint firstItem="Waf-QT-bUv" firstAttribute="top" secondItem="PBK-gz-feY" secondAttribute="top" constant="10" id="AEO-gb-xjC"/>
                             <constraint firstItem="PBK-gz-feY" firstAttribute="trailing" secondItem="Waf-QT-bUv" secondAttribute="trailing" constant="40" id="HGo-9X-UT9"/>
-                            <constraint firstItem="tub-im-nPx" firstAttribute="top" secondItem="cwd-Pu-JoD" secondAttribute="top" constant="70" id="kis-mG-qbH"/>
-                            <constraint firstItem="tub-im-nPx" firstAttribute="leading" secondItem="cwd-Pu-JoD" secondAttribute="leading" constant="10" id="qcm-el-lON"/>
                         </constraints>
                     </view>
                     <connections>
@@ -638,7 +599,7 @@
                             <stackView opaque="NO" tag="8" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dA3-QZ-3DX">
                                 <rect key="frame" x="40" y="69" width="313" height="286"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lA7-79-rJP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CareEsteem Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lA7-79-rJP">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="wOx-dG-621"/>
@@ -879,10 +840,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGu-qm-Aba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783.96946564885491" y="-23.239436619718312"/>
+            <point key="canvasLocation" x="818" y="-23"/>
         </scene>
     </scenes>
     <resources>
+        <image name="CareEsteem Logo" width="676" height="676"/>
         <image name="back" width="25" height="25"/>
         <image name="bg" width="219.5" height="478"/>
         <image name="call" width="31" height="31.333333969116211"/>
@@ -895,6 +857,9 @@
         <image name="oui_popout" width="16" height="16"/>
         <image name="unchecked" width="24" height="24"/>
         <image name="verifyotpBG" width="267" height="267"/>
+        <namedColor name="AccentColor">
+            <color red="0.15294117647058825" green="0.59999999999999998" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppColor">
             <color red="0.15294117647058825" green="0.59999999999999998" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -904,8 +869,5 @@
         <namedColor name="viewBGColor">
             <color red="0.96078431372549022" green="1" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

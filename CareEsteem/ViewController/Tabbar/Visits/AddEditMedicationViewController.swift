@@ -22,12 +22,13 @@ class AddEditMedicationViewController: UIViewController {
     @IBOutlet weak var prnStack: UIStackView!
     @IBOutlet weak var bpStack: UIStackView!
     
-    @IBOutlet weak var heigthconstraint: NSLayoutConstraint!
     @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var lblSupport: UILabel!
     @IBOutlet weak var lblQuantity: UILabel!
     @IBOutlet weak var lblRoute: UILabel!
     @IBOutlet weak var lblFrequancy: UILabel!
+    @IBOutlet weak var main_view: AGView!
+    @IBOutlet weak var scrollview: UIScrollView!
     
     var updateHandler:(()->Void)?
     var isEdit:Bool = false
@@ -37,6 +38,12 @@ class AddEditMedicationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        heigthconstraint.constant = self.view.frame.height - 450
+        scrollview.layer.cornerRadius = 15
+        scrollview.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        scrollview.clipsToBounds = true
+        main_view.layer.cornerRadius = 15
+        main_view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        main_view.clipsToBounds = true
         self.lblTitle.text = self.medication?.nhsMedicineName
        
         if self.medication?.medicationType == "PRN1"{
@@ -128,7 +135,8 @@ class AddEditMedicationViewController: UIViewController {
         titleLabel.text = title
 //        titleLabel.textAlignment =
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.RobotoSlabFont(size: 13, weight: .Regular)
+        titleLabel.font = UIFont.robotoSlab(.regular, size: 13)
+        //RobotoSlabFont(size: 13, weight: .Regular)
         titleLabel.textColor = .black
 //        titleLabel.widthAnchor.constraint(equalToConstant: self.visit.frame.width/2.2).isActive = true
         titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true

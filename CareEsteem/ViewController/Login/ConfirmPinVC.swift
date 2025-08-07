@@ -61,7 +61,9 @@ class ConfirmPinVC: UIViewController {
         pinCodeInputView.set(
             appearance: .init(
                 itemSize: CGSize(width: 12, height: 12),
-                font: .systemFont(ofSize: 28, weight: .bold),
+                font: UIFont.robotoSlab(.regular, size: 25)
+                    //UIFont(name: "RobotoSlab-Regular", size: 25) ?? UIFont.systemFont(ofSize: 25)
+                ,
                 textColor: UIColor(named: "appGreen") ?? .green,
                 backgroundColor: UIColor.blue.withAlphaComponent(0.3),
                 cursorColor: UIColor(named: "appGreen") ?? .green,

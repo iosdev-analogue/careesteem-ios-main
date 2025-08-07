@@ -20,7 +20,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-gC-x7L">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="784"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pjE-hq-pOD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CareEsteem Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pjE-hq-pOD">
                                 <rect key="frame" x="96.666666666666686" y="351" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -41,8 +41,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CareEsteem Logo" width="676" height="676"/>
         <image name="bg" width="219.5" height="478"/>
-        <image name="logo" width="200" height="200"/>
         <namedColor name="viewBGColor">
             <color red="0.96078431372549022" green="1" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

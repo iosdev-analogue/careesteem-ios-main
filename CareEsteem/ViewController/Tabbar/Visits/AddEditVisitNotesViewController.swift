@@ -15,13 +15,17 @@ class AddEditVisitNotesViewController: UIViewController {
     @IBOutlet weak var btnSubmit: AGButton!
     @IBOutlet weak var btnCancel: AGButton!
     
+    @IBOutlet weak var main_view: AGView!
+    
     var updateHandler:(()->Void)?
     var visitNotes:VisitNotesModel?
     var visitDetaiID:String?
     var isEdit:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        main_view.layer.cornerRadius = 15
+        main_view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        main_view.clipsToBounds = true
         if self.isEdit{
             self.txtVisitNote.text = self.visitNotes?.visitNotes
         }

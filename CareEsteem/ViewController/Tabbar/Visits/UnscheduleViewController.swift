@@ -33,6 +33,8 @@ class UnscheduleViewController: UIViewController {
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var speratorView: UIView!
     
+    @IBOutlet weak var viewAddnote: UIView!
+    
     var visit:VisitsModel?
     var visitType:VisitType = .none
     var selectedType:VisitDetailType = .medication
@@ -47,6 +49,7 @@ class UnscheduleViewController: UIViewController {
         addView.isHidden = selectedType == .medication
 
         self.viewVisitNoData.isHidden = true
+        self.viewAddnote.isHidden = true
         self.tableView.pullToRefreshScroll = { pull in
             pull.endRefreshing()
             self.getDataList_APICall()
@@ -60,10 +63,12 @@ class UnscheduleViewController: UIViewController {
         self.btnMedication.action = {
             self.selectedType = .medication
             self.addView.isHidden = true
+            self.viewAddnote.isHidden = true
             self.setData()
         }
         self.btnVisitNotes.action = {
             self.selectedType = .visitnote
+            self.viewAddnote.isHidden = false
             self.setData()
         }
         self.btnCheckout.action = {
@@ -83,7 +88,7 @@ class UnscheduleViewController: UIViewController {
                 let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                dateFormatter.timeZone = .current// TimeZone(identifier: "Europe/London")
+                dateFormatter.timeZone =  TimeZone(identifier: "Europe/London")
 
                 if let startDate = dateFormatter.date(from: fullDateTimeStr) {
                     let currentDate = Date()
@@ -124,7 +129,7 @@ class UnscheduleViewController: UIViewController {
                 }
             }
         }
-        self.btnNotes.action = {
+         self.btnNotes.action = {
             self.addNote()
         }
         self.btnNotes1.action = {
@@ -251,7 +256,7 @@ class UnscheduleViewController: UIViewController {
         let fullDateTimeStr = "\(visitDateStr) \(startTimeStr)"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = .current//TimeZone(identifier: "Europe/London")
+        dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
 
         if let startDate = dateFormatter.date(from: fullDateTimeStr) {
             let currentDate = Date()
@@ -297,10 +302,10 @@ extension UnscheduleViewController:UITableViewDelegate,UITableViewDataSource{
         let view = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         view.backgroundColor = .white
         if section == 1 {
-            var lbl = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
-            lbl.textColor = .black
-            lbl.text = "PRN Medication"
-            view.addSubview(lbl)
+//            var lbl = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+//            lbl.textColor = .black
+//            lbl.text = "PRN Medication"
+//            view.addSubview(lbl)
             
         }
         return view
@@ -435,14 +440,17 @@ extension UnscheduleViewController {
                     if data.statusCode == 200{
                         
                         self?.list = data.data ?? []
-//                        self.viewVisitNoData.isHidden = !self.list.isEmpty
-//                        self.addNoteView.isHidden = self.list.isEmpty
+//                        self?.viewVisitNoData.isHidden = !(self?.list.isEmpty ?? [])
+//                       self.addNoteView.isHidden = self.list.isEmpty
+                        
+                        self?.viewVisitNoData.isHidden = !(self?.list.isEmpty ?? false)
+
                         self?.tableView.reloadData()
                     }else{
                         self?.list = []
 //                        self.viewVisitNoData.isHidden = !self.list.isEmpty
 //                        self.addNoteView.isHidden = self.list.isEmpty
-                        self?.tableView.reloadData()
+                        //self?.tableView.reloadData()
                         self?.view.makeToast(data.message ?? "")
                     }
 //                    if self?.selectedType == .medication{
@@ -483,6 +491,8 @@ extension UnscheduleViewController {
                         self?.mediList = []
 //                        self.viewVisitNoData.isHidden = !self.list.isEmpty
 //                        self.addNoteView.isHidden = self.list.isEmpty
+                        self?.viewVisitNoData.isHidden = !(self?.list.isEmpty ?? false)
+                        
 //                        self?.tableView.reloadData()
                         self?.view.makeToast(data.message ?? "")
                     }

@@ -7,93 +7,161 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "193AD93B-C0B8-4848-83B0-87A8AB965BCB"
+            uuid = "2883091A-3600-4DB2-954B-7229164143C1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CareEsteem/ViewController/Login/LoginViewController.swift"
+            filePath = "CareEsteem/Extension/UIFont+App.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "setupBindings()"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "robotoSlab(_:size:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "193AD93B-C0B8-4848-83B0-87A8AB965BCB - 730fb3205efdb5d0"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String, Swift.String, Swift.String) -&gt; () in CareEsteem.LoginViewController.setupBindings() -&gt; ()"
-                  moduleName = "CareEsteem.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaurav/Documents/Analogue%20IT%20Projects/careesteem-ios-main/CareEsteem/ViewController/Login/LoginViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38">
-               </Location>
-               <Location
-                  uuid = "193AD93B-C0B8-4848-83B0-87A8AB965BCB - d2ae6237bcd358a8"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Swift.String, Swift.String, Swift.String) -&gt; () in CareEsteem.LoginViewController.setupBindings() -&gt; ()"
-                  moduleName = "CareEsteem.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaurav/Documents/Analogue%20IT%20Projects/careesteem-ios-main/CareEsteem/ViewController/Login/LoginViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "83937C7B-8420-4B3A-A415-104CA0FB313C"
+            uuid = "BDE52A01-A668-46FF-961E-1F8071B10908"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CareEsteem/ViewController/Login/LoginViewController.swift"
+            filePath = "CareEsteem/Extension/UIFont+App.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "setupBindings()"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "robotoSlab(_:size:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "83937C7B-8420-4B3A-A415-104CA0FB313C - 5925bb347d1205b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CareEsteem.LoginViewController.setupBindings() -&gt; ()"
-                  moduleName = "CareEsteem.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaurav/Documents/Analogue%20IT%20Projects/careesteem-ios-main/CareEsteem/ViewController/Login/LoginViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "83937C7B-8420-4B3A-A415-104CA0FB313C - 730fb3205efdb254"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String, Swift.String, Swift.String) -&gt; () in CareEsteem.LoginViewController.setupBindings() -&gt; ()"
-                  moduleName = "CareEsteem.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaurav/Documents/Analogue%20IT%20Projects/careesteem-ios-main/CareEsteem/ViewController/Login/LoginViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7944C24-4D4D-4CB6-BFC9-8F956A121167"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/CheckinCheckoutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "708"
+            endingLineNumber = "708"
+            landmarkName = "createEarlyLateCheckin_APICall(uatId:isCheckin:isEarly:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9C84F37-6194-4033-9BA7-DDFF6C594696"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/CheckinCheckoutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "553"
+            endingLineNumber = "553"
+            landmarkName = "updateVisitCheckinTime_APICall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64307FB2-6D88-4559-9A75-609B482AC03E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/Extension/String+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "convertDateToString(date:format:timeZone:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3CF64B43-D20D-4FB8-B9B1-56B5D74F4681"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/CheckinCheckoutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "559"
+            endingLineNumber = "559"
+            landmarkName = "updateVisitCheckinTime_APICall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D10D8BFA-DE3D-46B6-8338-B7E8D6D845C6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/CheckinCheckoutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "605"
+            endingLineNumber = "605"
+            landmarkName = "updateVisitCheckOutTime_APICall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BC95F3A-BEC5-4DB3-B033-9EA71B68E334"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/CheckinCheckoutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
+            landmarkName = "updateVisitCheckOutTime_APICall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8060BD9-5495-410D-A985-DFD81DED3050"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/ScheduleViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F9B3AA0-E70F-4252-999C-14972EB0E151"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CareEsteem/ViewController/Tabbar/Visits/VisitsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
+            landmarkName = "VisitsViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
