@@ -28,6 +28,7 @@ class UnscheduleViewController: UIViewController {
     @IBOutlet weak var lblTypeSelected: UILabel!
     @IBOutlet weak var lblNoDataText: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewAddnote: UIView!
     
     @IBOutlet weak var statusView: AGView!
     @IBOutlet weak var timeView: UIView!
