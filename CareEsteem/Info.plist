@@ -4,8 +4,8 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-    <key>NSCameraUsageDescription</key>
-    <string>We need camera permission for QR code scan</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera permission for QR code scan</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -13,11 +13,11 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+        <string>RobotoSlab-Regular.ttf</string>
 		<string>RobotoSlab-Bold.ttf</string>
 		<string>Arvo-Bold.ttf</string>
 		<string>RobotoSlab-BoldItalic.ttf</string>
 		<string>RobotoSlab-Italic.ttf</string>
-		<string>RobotoSlab-Regular.ttf</string>
 		<string>OpenSans-Regular.ttf</string>
 		<string>OpenSans-Medium.ttf</string>
 		<string>OpenSans-Light.ttf</string>
@@ -27,10 +27,9 @@
 		<string>Lora-Bold.ttf</string>
 		<string>Lora-Regular.ttf</string>
 	</array>
-    <key>NSFaceIDUsageDescription</key>
-    <string>This app uses Face ID for secure authentication.</string>
-    <key>GMSApiKey</key>
-    <string>AIzaSyDVUeAtCLN1dvo711iPCgTL1dLHiV5Z1Ec</string>
-    
+	<key>NSFaceIDUsageDescription</key>
+	<string>This app uses Face ID for secure authentication.</string>
+	<key>GMSApiKey</key>
+	<string>AIzaSyDVUeAtCLN1dvo711iPCgTL1dLHiV5Z1Ec</string>
 </dict>
 </plist>

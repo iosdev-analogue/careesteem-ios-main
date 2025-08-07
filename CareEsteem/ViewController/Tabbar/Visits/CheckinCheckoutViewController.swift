@@ -547,13 +547,14 @@ class CheckinCheckoutViewController: UIViewController {
         CustomLoader.shared.showLoader(on: self.view)
         
         let params = [APIParameters.Visits.visit_details_id: self.visitDetailId,
-                      APIParameters.Visits.status: "",
+                      APIParameters.Visits.status: "checkin",
                       APIParameters.Visits.userId: UserDetails.shared.user_id,
                       APIParameters.Visits.clientId: self.clientId,
                       APIParameters.Visits.actualStartTime: convertDateToString(date: Date(), format: "yyyy-MM-dd HH:mm:ss",
                                                                                 timeZone: TimeZone(identifier: "Europe/London")),
                       APIParameters.Visits.createdAt: convertDateToString(date: Date(), format: "yyyy-MM-dd HH:mm:ss",timeZone: TimeZone(identifier: "Europe/London"))
         ] as [String : Any]
+        
         
         WebServiceManager.sharedInstance.callAPI(apiPath: .updateVisitCheckinTime,
                                                  method: .post,
@@ -607,7 +608,7 @@ class CheckinCheckoutViewController: UIViewController {
                       APIParameters.Visits.updatedAt: convertDateToString(date: Date(), format: "yyyy-MM-dd HH:mm:ss",
                                                                           timeZone: TimeZone(identifier: "Europe/London"))
         ] as [String : Any]
-        
+        print("Params :- ",params)
         CustomLoader.shared.showLoader(on: self.view)
         WebServiceManager.sharedInstance.callAPI(apiPath: .updateVisitCheckoutTime(userId:UserDetails.shared.user_id,
                                                                                    visitId: self.visitDetailId.description),

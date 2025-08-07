@@ -21,7 +21,8 @@ class InfoHstackTableViewCell:UITableViewCell{
                         titleLabel.text = item.title
                         titleLabel.textAlignment = .center
                         titleLabel.numberOfLines = 0
-                        titleLabel.font = UIFont.RobotoSlabFont(size: 13, weight: .Regular)
+                        titleLabel.font = UIFont.robotoSlab(.regular, size: 13)
+                        //RobotoSlabFont(size: 13, weight: .Regular)
                         titleLabel.textColor = .black
                         stack.addArrangedSubview(titleLabel)
                     }else{

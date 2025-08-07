@@ -152,7 +152,8 @@ class Photo {
          nameLabel.textAlignment = .center
          nameLabel.backgroundColor = UIColor(named: "appGreen")
          nameLabel.textColor = .white
-         nameLabel.font = UIFont.RobotoSlabFont(size: 20, weight: .Bold)
+        nameLabel.font = UIFont.robotoSlab(.bold, size: 20)
+        //RobotoSlabFont(size: 20, weight: .Bold)
          var initials = ""
          if let initialsArray = name?.components(separatedBy: " ") {
              if let firstWord = initialsArray.first {

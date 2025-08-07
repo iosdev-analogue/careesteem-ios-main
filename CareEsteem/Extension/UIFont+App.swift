@@ -10,11 +10,10 @@ import UIKit
 
 import UIKit
 
-public enum RobotoSlab: String {
-    case Bold
-    case BoldItalic
-    case Italic
-    case Regular
+public enum RobotoSlabFont: String {
+    case regular = "RobotoSlab-Regular"
+        case bold = "RobotoSlab-Bold"
+        case light = "RobotoSlab-Light"
 }
 public enum OpenSans: String {
     case Regular
@@ -31,14 +30,25 @@ public enum Lora: String {
 
 public extension UIFont {
     
-    class func RobotoSlabFont(size: CGFloat, weight: RobotoSlab) -> UIFont {
-        if let font = UIFont(name: "RobotoSlab-\(weight)", size: size) {
-            return font
-        }
-        else{
-            fatalError("Font not found RobotoSlab-\(weight)")
-        }
-    }
+//    class func RobotoSlabFont(size: CGFloat, weight: RobotoSlab) -> UIFont {
+//        if let font = UIFont(name: "RobotoSlab-\(weight)", size: size) {
+//            return font
+//        }
+//        else{
+//            fatalError("Font not found RobotoSlab-\(weight)")
+//        }
+//    }
+    static func robotoSlab(_ style: RobotoSlabFont, size: CGFloat) -> UIFont {
+           if let font = UIFont(name: style.rawValue, size: size) {
+               return font
+           } else {
+               print("❌ Font '\(style.rawValue)' not found. Falling back to system font.")
+               return UIFont.systemFont(ofSize: size)
+           }
+       }
+//    static func robotoSlab(_ style: RobotoSlabFont, size: CGFloat) -> UIFont {
+//          return UIFont(name: style.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
+//      }
     
     class func openSansFont(size: CGFloat, weight: OpenSans) -> UIFont {
         if let font = UIFont(name: "OpenSans-\(weight)", size: size) {

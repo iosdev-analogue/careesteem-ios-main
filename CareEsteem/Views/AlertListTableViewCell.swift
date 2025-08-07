@@ -25,7 +25,7 @@ class AlertListTableViewCell:UITableViewCell{
         tableView.dataSource = self
         tableView.delegate = self
         let createdAt = convertStringToDate(dateString: model.createdAt ?? "", format: "yyyy-MM-dd'T'HH:mm:ss.SSS")
-        self.lblName.text = (model.clientName ?? "") + "  " + convertDateToString(date: createdAt ?? Date(), format: "dd/MM/yyyy 'at' hh:mm a")
+        self.lblName.text = (model.clientName ?? "") + "  " + convertDateToString(date: createdAt ?? Date(), format: "dd/MM/yyyy 'at' hh:mm a", timeZone: TimeZone(identifier: "Europe/London"))
         if model.isExpand ?? false{
             tableViewHeight.constant = CGFloat((model.bodyPartNames?.count ?? 0) * 300)
             self.imgDropDown.image = UIImage(systemName: "chevron.up")
